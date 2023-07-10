@@ -20,21 +20,21 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 35px;
+    font-size: 3rem;
     margin: 20px;
     color: #2D334A;
     text-shadow: 1px 1px 1px #13161f;
 }
 
 .start-text {
-    font-size: 26px;
+    font-size: 1.1rem;
     text-align: center;
     padding: 20px;
 }
 
 #result{
     background-color: #FAB696;
-    font-size: 18px;
+    font-size: 1.2rem;
 }
 
 .box-group-result{
@@ -43,7 +43,8 @@ h1 {
     display: flex;
     justify-content: space-around;
     max-width: 100%;
-    font-size: 40px;
+    font-size: 2rem;
+    gap: 2px;
     
 }
 
@@ -54,7 +55,7 @@ h1 {
 }
 
 .box-result>h3{
-    font-size: 30px;
+    font-size: 1.7rem;
 }
 .group-result {
     display: flex;
@@ -77,7 +78,7 @@ h1 {
 
 #group-btn>button {
     width: 100%;
-    font-size: 35px;
+    font-size: 2rem;
     border: none;
     border-radius: 20px;
     background-color: #0C9463;
