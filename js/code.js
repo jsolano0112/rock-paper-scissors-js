@@ -6,16 +6,16 @@ const TIE = 0;
 const WIN = 1;
 const LOST = 2;
 
-
-const rockBtn = document.getElementById("rock");
-const paperBtn = document.getElementById("paper");
-const scissorsBtn = document.getElementById("scissors");
+let rockBtn = document.getElementById("rock");
+let paperBtn = document.getElementById("paper");
+let scissorsBtn = document.getElementById("scissors");
 const resultText = document.getElementById("result")
 const computerEmoji = document.getElementById("computer");
 const userEmoji = document.getElementById("user")
 const message = document.getElementById("message")
-const attempsC = document.getElementById("tryC")
-const attempsU = document.getElementById("tryU")
+const spnAttempsC = document.getElementById("tryC")
+const spnAttempsU = document.getElementById("tryU")
+
 const btnReset = document.getElementById("btn-reset")
 
 rockBtn.addEventListener("click", () => {
@@ -34,27 +34,51 @@ btnReset.addEventListener('click', resetGame);
 function play(userOption) {
     const computerOption = Math.floor(Math.random() * 3);
     const result = calcResult(userOption, computerOption);
-
+    const attempsC = 3;
+    const attempsU = 3;
 
     emojis(userOption, userEmoji);
 
     emojis(computerOption, computerEmoji);
 
-    switch (result) {
-        case TIE:
-            resultText.innerHTML = "TIE!";
-            resultText.style.background = '#FAB696';
-            break;
-        case WIN:
-            resultText.innerHTML = "U WIN! :D";
-            resultText.style.background = '#69C181';
-            break;
-        case LOST:
-            resultText.innerHTML = "U LOST :(";
-            resultText.style.background = '#F16767';
-            break;
-    }
+   
+    while (attempsC < 3 && attempsU < 3) {
 
+        switch (result) {
+            case TIE:
+                resultText.innerHTML = "TIE!";
+                resultText.style.background = '#FAB696';
+                break;
+            case WIN:
+                resultText.innerHTML = "U WIN! :D";
+                resultText.style.background = '#69C181';
+                break;
+            case LOST:
+                resultText.innerHTML = "U LOST :(";
+                resultText.style.background = '#F16767';
+                break;
+        }
+        
+        if (resultText === "U WIN! :D") {
+            attempsC--;
+            spnAttempsC.innerHTML = attempsC;
+        } else if (resultText === "U LOST :(") {
+            attempsU --;
+            spnAttempsU.innerHTML = attempsU;
+        }
+
+        if (attempsU === 0 || attempsC === 0) {
+            if(attempsU !== 0){
+                message.innerHTML = "U WIN!!!!!🎇🎉🎊";
+            }else if( attempsC !== 0 ){
+                message.innerHTML = "U LOST, TRY AGAIN";
+            }
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorsBtn.disabled = true;
+        
+        }
+    }
 
 }
 
@@ -69,9 +93,6 @@ function emojis(play, emoj) {
     }
 }
 
-
-
-
 function calcResult(userOption, computerOption) {
     if (userOption === computerOption) {
         return TIE;
@@ -85,30 +106,7 @@ function calcResult(userOption, computerOption) {
         if (computerOption === ROCK) return LOST;
         if (computerOption === PAPER) return WIN;
     }
-
-
 }
-
-// while (attempsC < 3 && attempsU < 3) {
-
-//     if (resultText === "U WIN! :D") {
-//         attempsC = attempsC + 1;
-//     } else if (resultText === "U LOST :(") {
-//         attempsU = attempsU + 1;
-//     }
-// }
-
-attempsC = 0;
-attempsU = 0;
-
-if (attempsU === 0 || attempsC === 0) {
-    message.innerHTML = "acabó";
-    rockBtn.disabled = true;
-    paperBtn.disabled = true;
-    scissorsBtn.disabled = true;
-
-}
-
 
 function resetGame() {
     location.reload()
