@@ -6,8 +6,6 @@ const TIE = 0;
 const WIN = 1;
 const LOST = 2;
 
-var attempsC = 0;
-var attempsU = 0;
 
 const rockBtn = document.getElementById("rock");
 const paperBtn = document.getElementById("paper");
@@ -16,6 +14,9 @@ const resultText = document.getElementById("result")
 const computerEmoji = document.getElementById("computer");
 const userEmoji = document.getElementById("user")
 const message = document.getElementById("message")
+const attempsC = document.getElementById("tryC")
+const attempsU = document.getElementById("tryU")
+const btnReset = document.getElementById("btn-reset")
 
 rockBtn.addEventListener("click", () => {
     play(ROCK);
@@ -26,6 +27,9 @@ paperBtn.addEventListener("click", () => {
 scissorsBtn.addEventListener("click", () => {
     play(SCISSORS);
 });
+
+btnReset.addEventListener('click', resetGame);
+
 
 function play(userOption) {
     const computerOption = Math.floor(Math.random() * 3);
@@ -94,9 +98,18 @@ function calcResult(userOption, computerOption) {
 //     }
 // }
 
-if (attempsU === 3 || attempsC === 3) {
+attempsC = 0;
+attempsU = 0;
+
+if (attempsU === 0 || attempsC === 0) {
     message.innerHTML = "acabó";
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled = true;
+
 }
 
 
-
+function resetGame() {
+    location.reload()
+}

@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
 }
 
 h1 {
@@ -32,12 +32,12 @@ h1 {
     padding: 20px;
 }
 
-#result{
+#result {
     background-color: #FAB696;
     font-size: 1.2rem;
 }
 
-.box-group-result{
+.box-group-result {
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -45,23 +45,38 @@ h1 {
     max-width: 100%;
     font-size: 2rem;
     gap: 2px;
-    
+
 }
 
-.box-result{
+.box-result {
     background-color: #FAB696;
     border-radius: 10px;
     width: 18rem;
 }
 
-.box-result>h3{
+.box-result>h3 {
     font-size: 1.7rem;
 }
+
 .group-result {
     display: flex;
     text-align: center;
     justify-content: center;
     flex-direction: column;
+}
+
+#btn-reset {
+    margin-bottom: 10px;
+    background-color: #FAB696;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    width: 4rem;
+    height: 2rem;
+}
+
+#btn-reset:hover {
+    background-color: #F16767;
 }
 
 #message {
