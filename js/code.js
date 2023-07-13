@@ -42,7 +42,7 @@ function play(userOption) {
     emojis(computerOption, computerEmoji);
 
    
-    while (attempsC < 3 && attempsU < 3) {
+    // while (attempsC < 3 && attempsU < 3) {
 
         switch (result) {
             case TIE:
@@ -59,26 +59,26 @@ function play(userOption) {
                 break;
         }
         
-        if (resultText === "U WIN! :D") {
-            attempsC--;
-            spnAttempsC.innerHTML = attempsC;
-        } else if (resultText === "U LOST :(") {
-            attempsU --;
-            spnAttempsU.innerHTML = attempsU;
-        }
+    //     if (resultText === "U WIN! :D") {
+    //         attempsC--;
+    //         spnAttempsC.innerHTML = attempsC;
+    //     } else if (resultText === "U LOST :(") {
+    //         attempsU --;
+    //         spnAttempsU.innerHTML = attempsU;
+    //     }
 
-        if (attempsU === 0 || attempsC === 0) {
-            if(attempsU !== 0){
-                message.innerHTML = "U WIN!!!!!🎇🎉🎊";
-            }else if( attempsC !== 0 ){
-                message.innerHTML = "U LOST, TRY AGAIN";
-            }
-            rockBtn.disabled = true;
-            paperBtn.disabled = true;
-            scissorsBtn.disabled = true;
+    //     if (attempsU === 0 || attempsC === 0) {
+    //         if(attempsU !== 0){
+    //             message.innerHTML = "U WIN!!!!!🎇🎉🎊";
+    //         }else if( attempsC !== 0 ){
+    //             message.innerHTML = "U LOST, TRY AGAIN";
+    //         }
+    //         rockBtn.disabled = true;
+    //         paperBtn.disabled = true;
+    //         scissorsBtn.disabled = true;
         
-        }
-    }
+    //     }
+    // }
 
 }
 
